@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex St. Tropez — AI Enablement Resources</title>
+<meta name="description" content="The toolkit from the AI session. Diagnose where you stand, then take the first five steps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#E9E3D2;
+    --paper2:#F0EBDC;
+    --ink:#22374A;
+    --ink-soft:rgba(34,55,74,0.72);
+    --gold:#A9822F;
+    --rule:rgba(34,55,74,0.28);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter',sans-serif; line-height:1.55;
+    padding:0 22px 80px;
+  }
+  .wrap { max-width:760px; margin:0 auto; }
+
+  header { padding:56px 0 34px; text-align:center; border-bottom:1px solid var(--rule); }
+  .kicker {
+    font-size:11px; font-weight:700; letter-spacing:0.28em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:20px;
+  }
+  h1 {
+    font-weight:900; text-transform:uppercase; letter-spacing:0.005em;
+    font-size:clamp(28px,7vw,46px); line-height:1.15; text-wrap:balance;
+  }
+  .goldbar { width:48px; height:3px; background:var(--gold); margin:22px auto; }
+  .lede {
+    font-family:'Playfair Display',serif; font-style:italic;
+    font-size:clamp(16px,4.2vw,21px); line-height:1.5;
+    color:var(--ink); max-width:560px; margin:0 auto; text-wrap:balance;
+  }
+
+  .intro { padding:34px 0 8px; font-size:16px; color:var(--ink-soft); }
+  .intro strong { color:var(--ink); font-weight:700; }
+
+  .sectlabel {
+    font-size:11px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--gold); margin:44px 0 18px;
+  }
+
+  .card {
+    display:block; text-decoration:none; color:inherit;
+    background:var(--paper2); border:1px solid var(--rule);
+    padding:22px 22px 20px; margin-bottom:14px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover, .card:focus { border-color:var(--gold); transform:translateY(-1px); }
+  .card .no {
+    font-family:'Playfair Display',serif; font-style:italic; font-weight:600;
+    font-size:15px; color:var(--gold); display:block; margin-bottom:8px;
+  }
+  .card h2 {
+    font-size:clamp(17px,4.6vw,22px); font-weight:900;
+    text-transform:uppercase; letter-spacing:0.005em; line-height:1.25;
+  }
+  .card p { margin-top:9px; font-size:15px; color:var(--ink-soft); }
+  .card .get {
+    display:inline-block; margin-top:14px; font-size:12px; font-weight:700;
+    letter-spacing:0.16em; text-transform:uppercase; color:var(--gold);
+  }
+
+  .bonus { border-color:var(--gold); background:transparent; }
+  .bonus .no { color:var(--gold); }
+
+  .allbox {
+    border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+    text-align:center; padding:30px 18px; margin:40px 0 0;
+  }
+  .allbox p { font-family:'Playfair Display',serif; font-style:italic; font-size:16px; margin-bottom:16px; }
+  .btn {
+    display:inline-block; text-decoration:none;
+    background:var(--ink); color:var(--paper);
+    font-size:12px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
+    padding:15px 30px;
+  }
+  .btn:hover { background:var(--gold); }
+
+  .oneline {
+    margin:46px 0 0; padding:26px 20px; text-align:center;
+    border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  }
+  .oneline .q {
+    font-weight:900; text-transform:uppercase;
+    font-size:clamp(17px,4.6vw,24px); line-height:1.3; text-wrap:balance;
+  }
+  .oneline .a {
+    font-family:'Playfair Display',serif; font-style:italic;
+    font-size:16px; color:var(--gold); margin-top:12px;
+  }
+
+  footer {
+    margin-top:52px; padding-top:24px; border-top:1px solid var(--rule);
+    text-align:center; font-size:11px; font-weight:700;
+    letter-spacing:0.3em; text-transform:uppercase; color:rgba(34,55,74,0.45);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Evolve Apex &middot; St. Tropez '26</div>
+    <h1>The AI Session</h1>
+    <div class="goldbar"></div>
+    <div class="lede">Everything from the talk. The thinking was the session. This is the doing.</div>
+  </header>
+
+  <div class="intro">
+    <p>Four short documents. Start with the first one, run it with your leadership team, and you will know exactly where you stand before you build anything. <strong>Nothing here needs a tool or a budget.</strong></p>
+  </div>
+
+  <div class="sectlabel">The Toolkit</div>
+
+  <a class="card" href="files/01-where-you-stand.md" download>
+    <span class="no">No. 1</span>
+    <h2>Where You Stand</h2>
+    <p>The definition, the five levels of key-man risk, the one number to measure, and the five audit questions to ask your leadership team. Start here.</p>
+    <span class="get">Download &rarr;</span>
+  </a>
+
+  <a class="card" href="files/02-your-first-five-steps.md" download>
+    <span class="no">No. 2</span>
+    <h2>Your First Five Steps</h2>
+    <p>What to do next week. Includes how to actually run the hour where you split one person's week into the part that needs them and the part that doesn't.</p>
+    <span class="get">Download &rarr;</span>
+  </a>
+
+  <a class="card" href="files/03-the-one-page.md" download>
+    <span class="no">No. 3</span>
+    <h2>The One Page</h2>
+    <p>North star, guard rails, speed limit. A fill-in template plus a worked example, so your team can make decisions without coming to you for every one.</p>
+    <span class="get">Download &rarr;</span>
+  </a>
+
+  <a class="card" href="files/04-rules-that-refuse.md" download>
+    <span class="no">No. 4</span>
+    <h2>Rules That Actually Refuse Something</h2>
+    <p>How to write guard rails people use, worked examples with what each one stopped, the ones that failed the test and why, and prompts for writing your own.</p>
+    <span class="get">Download &rarr;</span>
+  </a>
+
+  <div class="sectlabel">Bonus</div>
+
+  <a class="card bonus" href="https://github.com/zjamesblake/team-build-kit/blob/main/HOW_WE_BUILD.md">
+    <span class="no">For scanning</span>
+    <h2>How We Build</h2>
+    <p>The build lifecycle we actually run, in full. Three gates, what each one protects you from, and the blast-radius question that decides how much ceremony a build deserves. Written for people who are not developers.</p>
+    <span class="get">Read on GitHub &rarr;</span>
+  </a>
+
+  <div class="allbox">
+    <p>Or take the whole thing in one file.</p>
+    <a class="btn" href="files/apex-ai-enablement-toolkit.md" download>Download everything</a>
+  </div>
+
+  <div class="oneline">
+    <div class="q">If you disappeared for 90 days, what would still work?</div>
+    <div class="a">That's what you own. Everything else, you're renting.</div>
+  </div>
+
+  <footer>Evolve</footer>
+
+</div>
+</body>
+</html>
