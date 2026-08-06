@@ -97,3 +97,19 @@ If not yet, keep it and check again in a month. If it never will, cut it.
 Not ten. A page of ten rules is a page nobody reads, which means nobody refuses anything, which means you are back where you started.
 
 Start with three. Add one when something goes wrong that none of the existing three would have caught. That is the only good reason to add one.
+
+---
+
+## How to run this
+
+**Who:** you and whoever builds.
+**How long:** 20 minutes for a first set.
+
+1. Work the five prompts at the end of this document, in order.
+2. Write each rule as a refusal. *We don't ___* or *Nothing ships unless ___*.
+3. Against every rule, write the specific thing it has already stopped. Cannot name one? It is new, or it is decoration.
+4. Keep one failed rule on the page, marked as such. It teaches the difference faster than the good ones do.
+
+**Re-test quarterly.** Ask of each rule: *has anyone actually refused anything because of this since we wrote it?* Rules that have never fired are either wrong or unenforced, and both are worth knowing.
+
+**Prompt 5** tests any single rule in ten seconds by trying to name three things it would stop. If it cannot name three, you have a poster.

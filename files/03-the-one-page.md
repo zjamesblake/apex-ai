@@ -171,3 +171,19 @@ SPEED LIMIT
   before it goes live, and they can run it.
   Enforced by: whoever approves the go-live.
 ```
+
+---
+
+## How to run this
+
+**Who:** you, plus whoever will actually be building things.
+**How long:** 40 minutes for a first draft. It gets better after it survives a month of real decisions.
+
+1. Write the north star first, alone. If you cannot name one expensive problem, stop. You are not ready for the rest.
+2. Bring the team in for guard rails. Ask *"what have we built or nearly built that we regret?"* Every regret is a rule you did not have.
+3. Cut to three rules. Ten rules is a page nobody reads.
+4. Publish it somewhere the team actually looks, and put the date on it.
+
+**Review it when something goes wrong that none of your rules would have caught.** That is the only good reason to add one.
+
+**Prompt 4** interviews you and drafts the whole page, then tells you which of your rules are decoration.

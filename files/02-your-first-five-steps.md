@@ -87,3 +87,21 @@ No named problem, just go build. And once people can build, they build — becau
 
 **"We'll reward usage."**
 Measure activity and you will get activity. You need people rewarded for **getting rid of work**, not for producing it. Which means you need to be able to see outcomes rather than effort before you ask anyone to automate their own tasks away.
+
+---
+
+## How to run this
+
+**Week one, in order.** None of it needs budget or a tool.
+
+| Day | What | Who | Time |
+|---|---|---|---|
+| Mon | Name the person | You, alone | 2 minutes |
+| Tue | Split their week into two piles | You + them | 1 hour |
+| Wed–Thu | Write down the biggest item in pile B | You + them | 2 to 3 hours |
+| Fri | Draft the one page | You | 45 minutes |
+| Fri | Give the team the one rule | You | 5 minutes |
+
+**Definition of done for the week:** somebody who is not your expert does the pile-B item, unsupervised, and the output is good. Not "the document exists."
+
+**Prompts that do the heavy lifting:** number 2 sorts the two piles from a raw calendar dump. Number 3 runs the extraction interview so you are not trying to interview and take notes at the same time.

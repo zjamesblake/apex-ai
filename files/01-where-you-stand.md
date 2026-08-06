@@ -98,3 +98,20 @@ If the answer involves someone remembering to write it up, it does not happen. R
 Most teams answering these for the first time land on **level one or two**, and describe it as level three. That is not a failure of your team. Until about two years ago, getting knowledge out of people's heads was too expensive to be worth doing, so nobody did it. There was no business case.
 
 That is what changed. Not the ambition. The price.
+
+---
+
+## How to run this
+
+**Who:** you and your leadership team. Three to six people.
+**How long:** 45 minutes.
+**What you need:** nothing. No tools, no prep.
+
+1. Read the definition and the test out loud. Do not discuss yet.
+2. Work through the five audit questions **one at a time.** Write every answer down where everyone can see it.
+3. Do not let the room round up. The failure mode is describing level three while living at level two.
+4. Land on a level, and name the single most concentrated capability you have plus the person it lives in.
+
+**What you should have at the end:** a level, a name, and a list of what stops if that person is away for six weeks.
+
+**Want to run it faster?** Prompt 1 in *The Prompts* interviews you through all five questions and calls your level at the end.
