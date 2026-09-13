@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After the Call</title>
+<meta name="description" content="Everything from your Apex 1-1 call, in the order we ran it, in plain words. So you can run it again without me.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root{--paper:#E9E3D2;--paper2:#F0EBDC;--ink:#22374A;--ink-soft:rgba(34,55,74,0.72);--ink-faint:rgba(34,55,74,0.45);--gold:#A9822F;--rule:rgba(34,55,74,0.28);--rule2:rgba(34,55,74,0.14);color-scheme:light}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-weight:500;line-height:1.58;font-size:16.5px;-webkit-text-size-adjust:100%}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px 80px}
+  a{color:var(--ink)}
+  nav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+  nav .in{max-width:720px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:4px 16px}
+  nav a{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);padding:4px 0}
+  nav a:hover,nav a:focus{color:var(--gold)}
+  header{padding:52px 0 30px;text-align:center;border-bottom:1px solid var(--rule)}
+  .kicker{font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  h1{font-weight:900;text-transform:uppercase;font-size:clamp(30px,7vw,48px);line-height:1.12;margin:0;text-wrap:balance}
+  .goldbar{width:48px;height:3px;background:var(--gold);margin:22px auto}
+  .lede{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,4.2vw,21px);line-height:1.5;max-width:560px;margin:0 auto;text-wrap:balance}
+  .howto{padding:26px 0 0;color:var(--ink-soft);font-size:15.5px}
+  .howto b{color:var(--ink)}
+  section{padding-top:56px}
+  .sectlabel{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+  h2{font-weight:900;text-transform:uppercase;font-size:clamp(21px,5.2vw,30px);line-height:1.18;margin:0 0 16px;text-wrap:balance}
+  h3{font-weight:900;text-transform:uppercase;font-size:14.5px;letter-spacing:0.02em;margin:26px 0 8px}
+  p{margin:0 0 12px;max-width:60ch}
+  .soft{color:var(--ink-soft)}
+  .story{display:flex;gap:14px;margin:0 0 20px;padding:14px 18px;border:1px solid var(--rule);background:transparent}
+  .story .k{font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);padding-top:6px;white-space:nowrap}
+  .story p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:17.5px;line-height:1.45;margin:0;max-width:none}
+  .why{margin:18px 0 0}
+  .why h3{margin-top:0}
+  .need{margin:22px 0 0;padding:14px 18px;background:var(--paper2);border-left:3px solid var(--ink)}
+  .need .k{display:block;font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  .need p{margin:0;max-width:none;font-size:15.5px}
+  .name{margin:16px 0 0;padding:14px 18px;background:var(--paper2);border-left:3px solid var(--gold)}
+  .name .k{display:block;font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .name p{margin:0;max-width:none;font-size:15.5px}
+  .name b{font-weight:900;text-transform:uppercase;font-size:13.5px;letter-spacing:0.02em}
+  figure{margin:20px 0}
+  figure svg{display:block;width:100%;height:auto;color:var(--ink)}
+  figcaption{font-size:13px;color:var(--ink-soft);margin-top:8px;max-width:60ch}
+  table{border-collapse:collapse;width:100%;font-size:14px;margin:12px 0 4px}
+  th{text-align:left;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);padding:8px 10px 8px 0;border-bottom:1px solid var(--rule);vertical-align:bottom}
+  td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule2);vertical-align:top;line-height:1.45}
+  tr:last-child td{border-bottom:0}
+  .scroll{overflow-x:auto}
+  ul,ol{padding-left:20px;margin:6px 0 12px;max-width:60ch}
+  li{margin:6px 0}
+  details{background:var(--paper2);border:1px solid var(--rule);margin:12px 0}
+  summary{cursor:pointer;padding:13px 18px;font-weight:700;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink-soft)}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:20px}
+  details[open] summary::after{content:"–"}
+  details .in{padding:2px 18px 18px;font-size:15px}
+  details .in p{max-width:none}
+  details.guide summary{font-weight:900;color:var(--ink);font-size:14px}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}
+  .step{background:var(--paper2);border:1px solid var(--rule);padding:14px 12px 12px;min-width:0}
+  .step .n{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:600;color:var(--gold);font-size:15px}
+  .step .v{font-weight:900;text-transform:uppercase;font-size:14px;margin:4px 0 6px}
+  .step p{font-size:12.5px;margin:0;color:var(--ink-soft);line-height:1.4;max-width:none}
+  .step p b{color:var(--ink)}
+  .gates{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:8px;margin:16px 0}
+  .gate{background:var(--paper2);border:1px solid var(--rule);padding:14px 14px 12px}
+  .gate .n{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold)}
+  .gate .v{font-weight:900;text-transform:uppercase;font-size:14.5px;margin:4px 0 6px}
+  .gate p{font-size:13px;margin:0;color:var(--ink-soft);max-width:none}
+  .shapes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 8px}
+  .shape{background:var(--paper2);border:1px solid var(--rule);padding:16px 18px 14px;display:grid;grid-template-columns:44px 1fr;gap:12px}
+  .shape svg{width:44px;height:44px;color:var(--ink)}
+  .shape .tell{font-size:14.5px;line-height:1.45;margin:0 0 8px}
+  .shape .mv{font-size:13.5px;color:var(--ink-soft);margin:0 0 8px}
+  .shape .nm{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold)}
+  .shape .nm b{color:var(--ink);font-weight:900;font-size:13px}
+  .ex{border:1px solid var(--rule);background:var(--paper);padding:14px 16px;margin:12px 0 4px;font-size:13.5px}
+  .ex .lab{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .ex h5{margin:0 0 6px;font-size:14px;font-weight:900;text-transform:uppercase}
+  .ex h6{margin:10px 0 3px;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .ex ul,.ex ol{margin:2px 0 4px;padding-left:18px;max-width:none}
+  .ex li{margin:2px 0}
+  .ex p{max-width:none;margin:0 0 6px}
+  .rule{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:17px;padding:10px 0 4px}
+  .rule small{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+  .oneline{margin:30px 0 0;padding:26px 20px;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .oneline .q{font-weight:900;text-transform:uppercase;font-size:clamp(17px,4.6vw,24px);line-height:1.3;text-wrap:balance}
+  .oneline .a{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16px;color:var(--gold);margin-top:12px}
+  dl{display:grid;grid-template-columns:max-content 1fr;gap:9px 18px;font-size:14.5px;margin:14px 0}
+  dt{font-weight:900;text-transform:uppercase;font-size:12.5px;letter-spacing:0.03em;padding-top:2px}
+  dd{margin:0;color:var(--ink-soft)}
+  footer{margin-top:52px;padding-top:24px;border-top:1px solid var(--rule);text-align:center;font-size:11px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-faint)}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  @media (max-width:640px){.steps{grid-template-columns:1fr 1fr}.gates{grid-template-columns:1fr}.shapes{grid-template-columns:1fr}dl{grid-template-columns:1fr;gap:2px 0}dd{margin-bottom:8px}.story{flex-direction:column;gap:4px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="in">
+  <a href="#s1">1 · Time</a><a href="#s2">2 · You</a><a href="#s3">3 · Setup</a><a href="#s4">4 · Pick one</a><a href="#s4b">Patterns</a><a href="#s5">5 · Monday</a><a href="#s6">6 · Peak</a><a href="#words">Words</a>
+</div></nav>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Evolve Apex &middot; The 1-1</div>
+  <h1>After the Call</h1>
+  <div class="goldbar"></div>
+  <div class="lede">Everything from your call, in the order we ran it, in plain words. So you can run it again without me.</div>
+</header>
+
+<div class="howto">
+  <p><b>How to read this.</b> Six steps. Each one asks you a question, tells you why it matters, and says what you need before the next one. One founder, Mara, runs a supplements brand and goes through all six with you, so there is always a real example to look at. The names we use for these ideas come at the end of each step, after you already understand the idea. Anything in a "more" box is detail you can skip the first time.</p>
+</div>
+
+<!-- ============ STEP 1 ============ -->
+<section id="s1">
+  <div class="sectlabel">Step 1</div>
+  <h2>Where does your time actually go?</h2>
+  <div class="story"><span class="k">Mara</span><p>Mara runs a supplements brand doing about twenty-four million. Asked where her week goes, she says "product and brand". Her calendar says something else: about forty ad creatives a week wait for her sign-off, some for four days.</p></div>
+
+  <p>Open your calendar and your inboxes for the last two weeks. Email, Slack, Discord, wherever the asks come in. Write down everything that repeats. Not what you think your job is. What the two weeks actually show.</p>
+  <p>For each thing on the list, write down three things:</p>
+  <ul>
+    <li>How many hours a week it takes.</li>
+    <li>How much it drains you, one to five.</li>
+    <li>Whether it produces something, or is the chasing and checking around the real work. The sheet, the follow-up, the report nobody reads.</li>
+  </ul>
+  <p>Then add two more things for each item. Who else could do the next bit, and why they do not do it today. And what is waiting while the item sits with you: a launch, a person, an order, a decision someone else needs before they can move.</p>
+
+  <h3>Then name where the next profit comes from</h3>
+  <p>Between now and the end of the year, where does your next step in profit come from? Profit, not revenue. One thing, with a number. And the single thing blocking it today.</p>
+  <p>Now go back to your list and mark each item: does it block that profit directly, does it just eat hours you would rather spend on it, or neither?</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Mara's list, top three</th><th>Hrs/wk</th><th>Drain</th><th>Real work?</th><th>Who else could</th><th>Blocks the profit?</th></tr></thead>
+    <tbody>
+      <tr><td>Approving creatives before they launch, about 40 a week</td><td>6</td><td>4</td><td>Yes</td><td>Jules or Dev. "They don't know the claims lines."</td><td><b>Directly</b></td></tr>
+      <tr><td>Re-explaining to creators what is on-brand</td><td>3</td><td>5</td><td>No, chasing</td><td>Jules, mostly</td><td>Eats hours</td></tr>
+      <tr><td>Building the weekly leadership deck</td><td>3</td><td>3</td><td>No, checking</td><td>The CFO</td><td>Neither</td></tr>
+    </tbody>
+  </table></div>
+  <p class="soft">For Mara, the next step in profit comes from doubling how many ad concepts get tested each week, which she puts at three to four million. The thing blocking it is that every creative goes through her before it can launch, so the number of tests is capped by the hours she has.</p>
+
+  <div class="why"><h3>Why this comes first</h3>
+  <p>You cannot fix what you cannot see, and memory describes the job you think you have. Mara would never have put the forty creatives on a list. Her calendar did. And if we do not know exactly what we are solving for, nothing we design later will fit.</p></div>
+
+  <div class="need"><span class="k">Before you go on, you need</span><p>You should have a list of six or more things that repeat, each with hours and a drain score on it. You should have one sentence that says where your next profit comes from and what is blocking it. And from the list, you should be able to point at the two or three items that cost you the most. Those two or three are what the rest of this page works on.</p></div>
+
+  <div class="name"><span class="k">What we call this</span><p>The list is your <b>two weeks</b>. The profit source is <b>the lever</b>. That is all the vocabulary this step needs.</p></div>
+</section>
+
+<!-- ============ STEP 2 ============ -->
+<section id="s2">
+  <div class="sectlabel">Step 2</div>
+  <h2>How much of your business only works because you are there?</h2>
+  <div class="story"><span class="k">Mara</span><p>Everything Halden does with AI has one owner. Jules drafts creator briefs with a prompt that lives in her own account. Support has a reply assistant one person built. In June, Jules worked out a hook that lifted click-through. She showed the two editors. Dev, who runs the ads, found out in August.</p></div>
+
+  <p>There are two kinds of ability in a company, and they feel identical from the inside.</p>
+  <p>The first is what a person can do. It shows up fast. It gets better when that person gets better with the tools. And it leaves the building at five o'clock, and for good the day they resign.</p>
+  <p>The second is what the company can do, with no particular person in the room. It grows slower. It is the only one of the two that is worth anything when someone values your business.</p>
+  <p>The test that tells them apart is one question: <b>if you have to name a person for it to work, the company does not have it.</b> That person does. You are renting it from them.</p>
+  <p>The trap is that getting three times faster yourself feels like the company got better. It did not. It got more dependent on you.</p>
+
+  <h3>Five rungs</h3>
+  <p>Companies sit on one of five rungs, from most dependent on particular people to least. Read them and find yours.</p>
+  <ul>
+    <li><b>Chat.</b> People use AI here and there in a chat window. Nothing is written down. Every improvement dies when the tab closes.</li>
+    <li><b>Personal.</b> A few people have built their own ways of working. Real gains, entirely theirs. Your best person is faster and nobody else moved.</li>
+    <li><b>Shared.</b> The ways of working belong to the company. Anyone can use them. Someone else's improvement made your Tuesday better and you never asked.</li>
+    <li><b>Delegated.</b> The work runs without a person producing it. People check results, not drafts.</li>
+    <li><b>Self-improving.</b> It got better this month and you can point to why, not to who worked hard.</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 640 250" role="img" aria-label="Five rising steps named Chat, Personal, Shared, Delegated, Self-improving. Mara is marked on Personal. The jump between Personal and Shared is marked in gold. Chat and Personal are bracketed as rented, the rest as owned.">
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A9822F"/></marker></defs>
+      <g fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="30" y="196" width="108" height="30"/><rect x="146" y="166" width="108" height="60"/><rect x="262" y="136" width="108" height="90"/><rect x="378" y="106" width="108" height="120"/><rect x="494" y="76" width="108" height="150"/>
+      </g>
+      <g fill="currentColor" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" text-anchor="middle">
+        <text x="84" y="186">Chat</text><text x="200" y="156">Personal</text><text x="316" y="126">Shared</text><text x="432" y="96">Delegated</text><text x="548" y="66">Self-improving</text>
+      </g>
+      <g fill="currentColor" font-family="Inter,sans-serif" font-size="10.5" text-anchor="middle" opacity="0.72">
+        <text x="84" y="216">dies in the tab</text><text x="200" y="216">one person, 3x faster</text><text x="316" y="216">belongs to the company</text><text x="432" y="216">results, not drafts</text><text x="548" y="216">you can point to why</text>
+      </g>
+      <g stroke="currentColor" stroke-width="1" fill="none" opacity="0.6">
+        <path d="M30,40 L30,32 L254,32 L254,40"/><path d="M262,26 L262,18 L602,18 L602,26"/>
+      </g>
+      <g fill="currentColor" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" text-anchor="middle">
+        <text x="142" y="50">RENTED FROM PEOPLE</text><text x="432" y="14">OWNED BY THE COMPANY</text>
+      </g>
+      <circle cx="200" cy="178" r="6" fill="#A9822F"/>
+      <text x="200" y="195" fill="#A9822F" font-family="Playfair Display,serif" font-style="italic" font-size="12" text-anchor="middle">Mara is here</text>
+      <path d="M212,150 C240,112 285,112 312,128" fill="none" stroke="#A9822F" stroke-width="2.5" marker-end="url(#ah)"/>
+      <text x="262" y="105" fill="#A9822F" font-family="Playfair Display,serif" font-style="italic" font-size="13" text-anchor="middle">the jump that matters</text>
+      <line x1="20" y1="226" x2="620" y2="226" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+    <figcaption>Mara sits on Personal: every AI use at Halden would stop with its owner, and the June hook took two months to reach Dev. The step from Personal to Shared is the only one that changes what her business is worth, and it is not a technical step. It is an organisational one.</figcaption>
+  </figure>
+
+  <h3>Place yourself with two questions</h3>
+  <ol>
+    <li>Take each thing your team does with AI. If the person who built it left, would it keep working?</li>
+    <li>The last time someone on the team worked something out, how long until everyone else could do it too? Never, months, days, or hours?</li>
+  </ol>
+  <p class="soft">Most companies are on Chat or Personal and describe themselves as Shared. That is not carelessness. Until recently, getting what people know out of their heads cost more than it was worth. What changed is the price.</p>
+
+  <div class="why"><h3>Why this comes second</h3>
+  <p>At your size, AI does not change how fast you go. It changes how much of the business depends on one person being there. Knowing your rung tells you what the next rung looks like, and that decides what kind of change we are looking for in your list from step 1. For Mara, the next rung is Shared: something she alone decides today, written down so that more than one person can run it.</p></div>
+
+  <div class="need"><span class="k">Before you go on, you need</span><p>You should know which rung you are on, and you should be able to say the two answers that put you there. You should know which rung is next. And you should have the one question that gets you there. For almost everyone reading this, that question is the same: <i>who else can do it, without you?</i></p></div>
+
+  <details><summary>More: the tells for each rung</summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>Rung</th><th>How you can tell</th><th>How long until everyone can do a new thing</th></tr></thead>
+      <tbody>
+        <tr><td><b>Chat</b></td><td>"My team uses ChatGPT." Two people solve the same problem in the same week.</td><td>Never</td></tr>
+        <tr><td><b>Personal</b></td><td>One person is much faster. Their prompts live in their account. When they are off, the speed is gone.</td><td>Months</td></tr>
+        <tr><td><b>Shared</b></td><td>The same task done by different people comes out the same quality. A new hire can do it in week one from what is written down.</td><td>Days</td></tr>
+        <tr><td><b>Delegated</b></td><td>Queues that used to wait on a person clear daily. Someone else owns the checking.</td><td>Days</td></tr>
+        <tr><td><b>Self-improving</b></td><td>Lessons get captured where the work happens, not as a separate chore. Nobody has to remember.</td><td>Hours</td></tr>
+      </tbody>
+    </table></div>
+    <p>The question for each step up: Chat to Personal, <i>what do you run every week?</i> Personal to Shared, <i>who else can do it without you?</i> Shared to Delegated, <i>do you check drafts, or results?</i> Delegated to Self-improving, <i>what got better last month, and why?</i></p>
+  </div></details>
+
+  <div class="name"><span class="k">What we call this</span><p>A company where what one person learns becomes something everyone can do, without anyone making that happen, is <b>AI-enabled</b>. Ability that lives in a person is <b>rented</b>; ability the company keeps is <b>owned</b>. The one question is <b>the Name Test</b>. The five rungs are <b>the Ladder</b>.</p></div>
+</section>
+
+<!-- ============ STEP 3 ============ -->
+<section id="s3">
+  <div class="sectlabel">Step 3</div>
+  <h2>Can your current setup carry that?</h2>
+  <div class="story"><span class="k">Mara</span><p>Mara's creatives live in ClickUp and her notes on each one live in Slack. Anyone on the team could pull up the last forty in a minute. Her supplier process lives in her head and in a spreadsheet only she opens. Nobody could pull up anything.</p></div>
+
+  <p>Step 2 said the way up is to get a decision out of one person's head and into the company. That only works if the things the decision is about are somewhere other people can reach. A lot of good intentions die right here.</p>
+
+  <h3>One question, for each of your top items</h3>
+  <p><b>Could someone else pull up the things this decision works on, right now, without asking you?</b> The creatives, the orders, the tickets, the numbers. Not your rules for deciding. Just the things.</p>
+  <ul>
+    <li><b>Yes.</b> They sit in a tool the team uses, or you could export them. Mark the item <i>can move now</i>.</li>
+    <li><b>No.</b> They are in your head, on paper, in a chat nobody could search, or in a file only you open. Mark it <i>needs a home first</i>.</li>
+  </ul>
+  <p>Answer it for each item on its own, not for the company as a whole. For Mara's creative approvals the answer is yes. The creatives sit in ClickUp, which the whole team uses, and anyone could export the last forty without asking her. So that item can move now; nothing about her current setup is in the way. For her supplier process the answer is no. The history sits in her head and in a spreadsheet only she opens, so anyone who needed it would have to come and ask her. That item needs a home before anything else can happen to it.</p>
+
+  <figure>
+    <svg viewBox="0 0 640 310" role="img" aria-label="Four floors: in your head or on paper, half and half, in tools but separate, connected. A ladder stands on each. On the first two the ladder is short and labelled stays with a person. On the third it reaches can be shared. On the fourth it reaches can run on its own. Mara's supplier process is marked on the first floor, her creative approvals on the third.">
+      <g fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="20" y="248" width="150" height="30"/><rect x="170" y="248" width="150" height="30"/><rect x="320" y="248" width="150" height="30"/><rect x="470" y="248" width="150" height="30"/>
+      </g>
+      <g fill="currentColor" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">
+        <text x="95" y="267">In your head or on paper</text><text x="245" y="267">Half and half</text><text x="395" y="267">In tools, but separate</text><text x="545" y="267">Connected</text>
+      </g>
+      <g stroke="currentColor" stroke-width="1.5" fill="none">
+        <line x1="75" y1="248" x2="75" y2="180"/><line x1="115" y1="248" x2="115" y2="180"/><line x1="75" y1="214" x2="115" y2="214"/><line x1="75" y1="180" x2="115" y2="180"/>
+        <line x1="225" y1="248" x2="225" y2="180"/><line x1="265" y1="248" x2="265" y2="180"/><line x1="225" y1="214" x2="265" y2="214"/><line x1="225" y1="180" x2="265" y2="180"/>
+        <line x1="375" y1="248" x2="375" y2="146"/><line x1="415" y1="248" x2="415" y2="146"/><line x1="375" y1="214" x2="415" y2="214"/><line x1="375" y1="180" x2="415" y2="180"/><line x1="375" y1="146" x2="415" y2="146"/>
+        <line x1="525" y1="248" x2="525" y2="78"/><line x1="565" y1="248" x2="565" y2="78"/><line x1="525" y1="214" x2="565" y2="214"/><line x1="525" y1="180" x2="565" y2="180"/><line x1="525" y1="146" x2="565" y2="146"/><line x1="525" y1="112" x2="565" y2="112"/><line x1="525" y1="78" x2="565" y2="78"/>
+      </g>
+      <g fill="currentColor" font-family="Inter,sans-serif" font-size="10.5" text-anchor="middle" opacity="0.72">
+        <text x="95" y="166">stays with a person</text><text x="245" y="166">stays with a person</text><text x="395" y="132">can be shared</text><text x="545" y="64">can run on its own</text>
+      </g>
+      <g fill="#A9822F" font-family="Playfair Display,serif" font-style="italic" font-size="12" text-anchor="middle">
+        <text x="95" y="296">Mara's supplier process</text><text x="395" y="296">Mara's creative approvals</text>
+      </g>
+      <circle cx="95" cy="284" r="4" fill="#A9822F"/><circle cx="395" cy="284" r="4" fill="#A9822F"/>
+      <g fill="#A9822F" font-family="Inter,sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="1">
+        <text x="95" y="150">NEEDS A HOME FIRST</text><text x="395" y="116">CAN MOVE NOW</text>
+      </g>
+    </svg>
+    <figcaption>The floor a thing stands on decides how far it can go. Mara's creatives can be shared this month. Her supplier process needs a home first.</figcaption>
+  </figure>
+
+  <h3>If the answer is no</h3>
+  <p>Then the first job is small. Get every one of those things into one list the team already uses. A ClickUp list, a shared folder, a sheet. One week, no money. Done when the last two weeks of items are in it and new ones land there without anyone being asked.</p>
+  <p class="soft">If that would take more than a week, it is the wrong item for now. Pick another one from your list.</p>
+
+  <div class="why"><h3>Why this comes third</h3>
+  <p>Knowing your rung in step 2 tells you where you are going. This step tells you whether the ground under each item can take you there. Checking it now means you only spend effort on items that can move this month, and you know the small fix for the ones that cannot.</p></div>
+
+  <div class="need"><span class="k">Before you go on, you need</span><p>Each of your top items should now carry one of two marks. Either <i>can move now</i>, because the things it works on are somewhere the team can reach, or <i>needs a home first</i>, with the one-week job of putting them in one list written next to it.</p></div>
+
+  <details><summary>More: the four places things live, and two more fixes</summary><div class="in">
+    <p>The "no" answers come in a few kinds, and they matter later. <b>In your head or on paper:</b> memory, a notebook, voice notes, a chat thread nobody could search. <b>Half and half:</b> some in a tool, some not, no single place. The "yes" answers too: <b>in tools, but separate:</b> all digital, the tools do not talk, you could export it. <b>Connected:</b> the tools pass things to each other and something starts the work without a person asking. Only the connected floor lets a decision run on its own; the separate-tools floor is enough to share it, which is the step that matters.</p>
+    <p>Two more questions worth asking about a "yes" item. <b>What starts it?</b> Someone asking, a fixed time, or something happening in a tool. If it is "someone asking", give it a fixed time: nine every morning, or every Friday. <b>Do you trust the numbers?</b> If two sources disagree and nobody has picked one, pick one now and say why. And if the item needs two tools to talk, one export or one link between exactly those two tools is enough. Never a rebuild.</p>
+  </div></details>
+
+  <div class="name"><span class="k">What we call this</span><p>The ground an item stands on is <b>the Floor</b>. If you were in St. Tropez, this is what the talk called workflow sophistication.</p></div>
+</section>
+
+<!-- ============ STEP 4 ============ -->
+<section id="s4">
+  <div class="sectlabel">Step 4</div>
+  <h2>Which one thing do you fix first?</h2>
+  <div class="story"><span class="k">Mara</span><p>Mara has three candidates that cost the most: approving creatives, re-explaining the brand to creators, and answering "is this claim okay?" in Slack. Her own words on the call: "Those three are the same problem wearing different clothes."</p></div>
+
+  <p>By now you have two or three items from your list that cost you the most, and you know which of them can move. This step is about choosing one of them to fix, and only one. To choose well, you first make sure each item is the kind of problem this method can solve at all. Then you ask two questions that rule candidates out. Whatever is left, you rank, and the top one is your pick.</p>
+
+  <h3>Is it the kind of problem this method solves?</h3>
+  <p>Everything this page can fix has the same shape. It is a decision you make again and again, on a stream of similar things, where someone is waiting for your answer each time. Approving creatives fits: the same yes-or-no call, about forty times a week, with Dev waiting on each one before he can launch. Reading the numbers every morning and deciding what to scale fits. Writing a brief for every new creator fits.</p>
+  <p>A big one-off call does not fit, however much time it takes. Deciding whether to rebrand, negotiating with a supplier, choosing whether to go into retail. Each of those happens once, and there is no stream of forty behind it. Those decisions are your actual job. The point of everything on this page is to take the repeating decisions off your desk so you have more time for the ones that only happen once.</p>
+  <figure>
+    <svg viewBox="0 0 680 215" role="img" aria-label="Mara's approval drawn out: a creative is ready, it joins about forty a week, Mara decides approve or send back using rules that live in her head, the decision goes out, Dev and the launch calendar wait. An arrow runs from the waiting end back to the rules.">
+      <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A9822F"/></marker></defs>
+      <g fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="20" y="88" width="100" height="44"/><rect x="160" y="88" width="100" height="44"/><rect x="300" y="80" width="110" height="60"/><rect x="450" y="88" width="100" height="44"/><rect x="590" y="88" width="80" height="44"/>
+      </g>
+      <g fill="currentColor" font-family="Inter,sans-serif" font-size="12" font-weight="700" text-anchor="middle">
+        <text x="70" y="115">What starts it</text><text x="210" y="115">The stream</text><text x="355" y="115">The decision</text><text x="500" y="115">What goes out</text><text x="630" y="115">Who waits</text>
+      </g>
+      <g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#ah2)">
+        <line x1="120" y1="110" x2="158" y2="110"/><line x1="260" y1="110" x2="298" y2="110"/><line x1="410" y1="110" x2="448" y2="110"/><line x1="550" y1="110" x2="588" y2="110"/>
+      </g>
+      <g fill="#A9822F" font-family="Playfair Display,serif" font-style="italic" font-size="11" text-anchor="middle">
+        <text x="70" y="152">a creative is ready</text><text x="210" y="152">about 40 a week</text><text x="355" y="158">approve, or send back</text><text x="500" y="152">launch, or a bounce</text><text x="630" y="152">Dev, and the</text><text x="630" y="165">launch calendar</text>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"><rect x="300" y="18" width="110" height="36"/></g>
+      <text x="355" y="35" fill="currentColor" font-family="Inter,sans-serif" font-size="11" font-weight="700" text-anchor="middle">The rules it uses</text>
+      <text x="355" y="48" fill="#A9822F" font-family="Playfair Display,serif" font-style="italic" font-size="11" text-anchor="middle">today: Mara's head</text>
+      <line x1="355" y1="54" x2="355" y2="78" stroke="currentColor" stroke-width="1.5" marker-end="url(#ah2)"/>
+      <path d="M630,132 L630,192 L355,192 L355,144" fill="none" stroke="#A9822F" stroke-width="2" marker-end="url(#ah3)"/>
+      <text x="492" y="207" fill="#A9822F" font-family="Playfair Display,serif" font-style="italic" font-size="12.5" text-anchor="middle">what happens next should improve the rules. Today it only improves Mara.</text>
+    </svg>
+    <figcaption>Mara's approval, drawn out. A creative is ready, it joins the forty, she decides, it launches or bounces, Dev waits. Her rules live in her head, and so does everything she learns. Owning it means the rules are written down where others can use them.</figcaption>
+  </figure>
+
+  <h3>Two questions that rule candidates out, then a ranking</h3>
+  <p>For each candidate that fits the shape, ask two questions. A no to either one takes it off the list for now.</p>
+  <div class="gates">
+    <div class="gate"><div class="n">Check 1</div><div class="v">Is it stuck with one person?</div><p>Is one person the only one who can do the next bit? If several people could already do it, it is not stuck with anyone, and there is nothing here to fix. For Mara's approvals the answer is yes. Only she can.</p></div>
+    <div class="gate"><div class="n">Check 2</div><div class="v">Can it move now?</div><p>This is your mark from step 3. If the item can move now, or needs a home that takes a week to make, it stays. If getting it somewhere reachable would be a project, set it aside for now. Mara's approvals can move now.</p></div>
+    <div class="gate"><div class="n">Then rank</div><div class="v">How much waits, times how much there is</div><p>Two things decide the order. How much is waiting on this decision: people, launches, money. And how much passes through it: how many items or numbers it handles. The more of both, the higher it ranks. If two are close, the one that costs you more hours and more energy goes first.</p></div>
+  </div>
+  <p>If two tie, pick the one whose written-down rules the other could reuse. Mara's rules for approving a creative are the same rules the creators keep asking about, so writing them once shrinks both problems. And if a candidate is chasing and checking rather than real work, try to stop doing it altogether before you write anything down.</p>
+  <p class="soft">Mara picks approving creatives. Forty of them a week pass through it, every launch waits on it, and it is the thing blocking her next profit. The "is this claim okay?" questions in Slack fold into the same pick, because they are the same rules asked a different way. Jules's week is real too, and it comes next, but not now.</p>
+
+  <div class="why"><h3>Why one</h3>
+  <p>One thing finished beats three things started. Three half-written documents are three more things that only work if one person is around. And the thing you pick here decides exactly what you write down in step 5, so pick it once and stick with it.</p></div>
+
+  <div class="need"><span class="k">Before you go on, you need</span><p>You should have one item, chosen, and you should be able to say in a sentence why it came first. The next two are written down somewhere you will find them in January.</p></div>
+
+  <details><summary>More: describe your one item in six parts</summary><div class="in">
+    <p>Useful before the hour in step 5, because the person sitting with you will ask for all six. <b>What starts it.</b> An item arrives, a fixed time, or someone asks. <b>The stream.</b> What it works on, and roughly how many a week. <b>The decision.</b> What you actually decide: yes or no, scale or cut, this creator or that one. <b>Who decides today.</b> You, or the one person. <b>Who waits.</b> The people, launches, or money sitting behind the decision. <b>Where the lessons go.</b> When the decision turns out right or wrong, where does that go today? Usually: into the head of whoever decided.</p>
+  </div></details>
+
+  <div class="name"><span class="k">What we call this</span><p>A repeating decision on a stream, with someone waiting, is <b>a loop</b>. The two checks are <b>the Two Gates</b>. The one you picked is <b>the one loop</b>.</p></div>
+</section>
+
+<!-- ============ STEP 4b: PATTERNS ============ -->
+<section id="s4b">
+  <div class="sectlabel">Step 4, continued</div>
+  <h2>Which pattern is it?</h2>
+  <div class="story"><span class="k">Mara</span><p>Mara's one loop is a sign-off. Forty things a week wait for one person to say yes. She is not unusual. Almost every founder at her size has one of these, on creative or on purchase orders or on hires.</p></div>
+
+  <p>Every company is different. The places where work gets stuck with one person are not. There are six, and they show up whatever the department. Read the six tells, find yours, and open its guide. The guide tells you exactly what to write down, how to get it out of the head it lives in, how you will know it worked, and the one sentence to tell your team.</p>
+
+  <div class="shapes">
+    <div class="shape">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="8" x2="8" y2="36"/><line x1="36" y1="8" x2="36" y2="36"/><line x1="8" y1="22" x2="30" y2="22"/><circle cx="33" cy="22" r="3" fill="currentColor" stroke="none"/></g></svg>
+      <div><p class="tell">Things wait for one person to sign off on them before they can move. It might be creatives, launches, purchase orders, promotions, or hires.</p><p class="mv">Write down what you actually check when you say yes or no. Someone else runs that as a first pass. You look at what the first pass flagged instead of every draft.</p><div class="nm">We call this <b>the Gate</b></div></div>
+    </div>
+    <div class="shape">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="14" cy="22" r="3" fill="currentColor" stroke="none"/><path d="M20,14 a10,10 0 0 1 0,16"/><path d="M26,9 a17,17 0 0 1 0,26"/><path d="M32,4 a24,24 0 0 1 0,36"/></g></svg>
+      <div><p class="tell">You find yourself explaining the same thing again and again, to the team, to agencies, and to every new creator who joins.</p><p class="mv">Write it down once, in the place the work starts from, so every brief begins there instead of with you.</p><div class="nm">We call this <b>the Echo</b></div></div>
+    </div>
+    <div class="shape">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M6,32 a16,16 0 0 1 32,0"/><line x1="22" y1="32" x2="31" y2="19"/><circle cx="22" cy="32" r="2.5" fill="currentColor" stroke="none"/><line x1="6" y1="36" x2="38" y2="36"/></g></svg>
+      <div><p class="tell">You read the numbers every morning and decide what happens today, whether that is scaling or cutting an ad, reordering stock, or moving cash.</p><p class="mv">Write down the lines where you act and what you do at each one. Then the recommendation arrives already made, and you only handle the exceptions.</p><div class="nm">We call this <b>the Sensor</b></div></div>
+    </div>
+    <div class="shape">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><line x1="10" y1="6" x2="30" y2="38"/><line x1="16" y1="5" x2="26" y2="39"/><line x1="24" y1="5" x2="20" y2="39"/><line x1="32" y1="6" x2="14" y2="38"/><rect x="14" y="18" width="16" height="8" fill="#E9E3D2"/></g></svg>
+      <div><p class="tell">There is one person, not you, whose absence would stop specific things from happening. Their real judgment is wrapped up in hours of work anyone could do, so all of it lands on them.</p><p class="mv">Split their week into the part that needs their years of experience and the part that just sits next to it. Then write down the biggest thing in the second pile so someone else can do it.</p><div class="nm">We call this <b>the Bundle</b></div></div>
+    </div>
+    <div class="shape">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><line x1="14" y1="8" x2="14" y2="24"/><line x1="6" y1="16" x2="22" y2="16"/><line x1="8" y1="10" x2="20" y2="22"/><line x1="20" y1="10" x2="8" y2="22"/><circle cx="28" cy="28" r="1.8" fill="currentColor" stroke="none" opacity="0.7"/><circle cx="34" cy="33" r="1.4" fill="currentColor" stroke="none" opacity="0.45"/><circle cx="39" cy="38" r="1" fill="currentColor" stroke="none" opacity="0.25"/></g></svg>
+      <div><p class="tell">Someone on the team works something out that makes them better at their job, and it does not spread. They showed a couple of people. Months later, someone else finds out by accident.</p><p class="mv">Make one rule for lessons: where each one gets written, who writes it, and that it happens the same day.</p><div class="nm">We call this <b>the Spark</b></div></div>
+    </div>
+    <div class="shape">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="38" x2="22" y2="22"/><line x1="22" y1="22" x2="8" y2="8"/><line x1="22" y1="22" x2="22" y2="6"/><line x1="22" y1="22" x2="36" y2="8"/><circle cx="22" cy="38" r="3" fill="currentColor" stroke="none"/></g></svg>
+      <div><p class="tell">Several people on the team are using AI in their own ways, there are no shared rules, and every "should I build this?" question comes back to you to decide.</p><p class="mv">Write one page for the team: the one problem you are solving, three to five rules that say no to things, and one speed limit. Then they decide from the page.</p><div class="nm">We call this <b>the Fork</b></div></div>
+    </div>
+  </div>
+
+  <h3>The guides</h3>
+  <p class="soft">Open the one for your pattern. Each is about five minutes.</p>
+
+  <details class="guide"><summary>The Gate · things wait for one person's sign-off</summary><div class="in">
+    <p><b>What you will write down.</b> The rules you use when you say yes or no. Some rules stop a thing outright. Some just flag it for a look. Some are close calls, where you write the ruling you made. And one line for what to do when unsure.</p>
+    <p><b>The one-hour conversation.</b> You do not write this alone. The person who will do the first pass after you sits with you for an hour, with the last ten things you approved or sent back on the table. They ask "why did this one come back?" until it is on the page. When you hear yourself say <i>obviously</i>, <i>you just</i>, <i>it depends</i>, or <i>you get a feel for it</i>, stop. That is where the real rule is hiding. <a href="../files/05-the-prompts.md">Prompt 3</a> from the toolkit runs this conversation for you.</p>
+    <p><b>The first run.</b> Put the last ten real items through the rules and count how many come out the way you would have called them. Every miss is a rule you had not written. Add it the same day.</p>
+    <p><b>How you will know it worked.</b> The first pass agrees with you on nine of the last ten, and nothing waits more than a day.</p>
+    <div class="rule">Nothing launches without the first pass and a named person who checked it.<small>The one sentence to tell the team on Monday.</small></div>
+    <div class="ex"><div class="lab">Finished example</div>
+      <h5>Halden · creative approval rules · v0.1</h5>
+      <h6>Stops it</h6>
+      <ol><li>No claim that a product treats, cures, or prevents a condition. "Supports" and "helps with" are fine. "Fixes insomnia" is not.</li><li>No sleep claim with a number unless it is in the study we have on file.</li><li>No before-and-after body photos on gut products.</li><li>No creator says they are a doctor, nurse, or nutritionist unless we have checked.</li><li>The product is named in the first three seconds.</li></ol>
+      <h6>Flags it for a look</h6>
+      <ol start="6"><li>We sound like a calm friend who read the research. Flag "insane", "hack", "game-changer".</li><li>One idea per ad.</li><li>The problem comes before the product.</li></ol>
+      <h6>Close calls, with the ruling</h6>
+      <ul><li>"Wake up without the 3am spiral": fine. A feeling, not a claim.</li><li>A real review saying "cured my bloating": stop it. Using it is a claim.</li></ul>
+      <h6>When unsure</h6><p>Flag it. Mara looks at flags once a day. Every time she sends something back, the reason gets written in here the same day.</p>
+    </div>
+  </div></details>
+
+  <details class="guide"><summary>The Echo · you explain the same thing again and again</summary><div class="in">
+    <p><b>What you will write down.</b> One short page: who we are, who buys from us, what a good piece of work looks like, and what we never say. Short enough to read before writing a brief.</p>
+    <p><b>The one-hour conversation.</b> The person who asks you most often sits with you for an hour, with the last five briefs you corrected on the table. Every correction you made is a line for the page. <a href="../files/05-the-prompts.md">Prompt 3</a> with "writing a brief" as the task, or prompt 4.</p>
+    <p><b>The first run.</b> Someone else writes the next brief from the page alone. Count your corrections. Each one goes into the page.</p>
+    <p><b>How you will know it worked.</b> A brief written by someone else from the page needs no correction from you.</p>
+    <div class="rule">Nobody writes a brief from scratch. Every brief starts from the page.<small>The one sentence to tell the team.</small></div>
+    <div class="ex"><div class="lab">Finished example</div>
+      <h5>Corvo Coffee · who we are · v0.1</h5>
+      <h6>Who we are</h6><p>Specialty coffee for people who used to buy from a roaster and now have kids. We do the choosing. You do the drinking.</p>
+      <h6>Who buys</h6><ul><li>Thirty-five to fifty, comfortable, and the morning is the only quiet hour.</li><li>Has tried a subscription before and cancelled because the bags piled up.</li><li>Buys on taste first, then on not having to think.</li></ul>
+      <h6>What good looks like</h6><ul><li>Specific over lyrical. "Chocolate and orange peel" beats "a journey".</li><li>The person, not the bean, is the hero of the first three seconds.</li><li>One proof per ad: the roast date, the pause button, the 4.9 from 3,100 reviews.</li></ul>
+      <h6>What we never say</h6><ul><li>"Artisan." "Curated." "Elevate."</li><li>Anything about caffeine as a performance drug.</li><li>Names of competitors.</li></ul>
+      <h6>Who keeps it</h6><p>The founder. When she corrects a brief, the correction goes in here the same day.</p>
+    </div>
+  </div></details>
+
+  <details class="guide"><summary>The Sensor · you read the numbers and decide the day</summary><div class="in">
+    <p><b>What you will write down.</b> The numbers you look at, which source you trust for each, the line where you act, what you do at that line, and the exceptions.</p>
+    <p><b>The one-hour conversation.</b> The person who runs your ads sits with you for an hour with yesterday's numbers on the table. "What would you have done this morning, and why?" <a href="../files/05-the-prompts.md">Prompt 3</a> with "the morning call" as the task.</p>
+    <p><b>The first run.</b> Tomorrow, they write the recommendation from the page before you look. Compare. Every disagreement is a line you had not written.</p>
+    <p><b>How you will know it worked.</b> Three mornings in a row where the recommendation matches what you would have done.</p>
+    <div class="rule">We don't scale or cut without the page. Exceptions come to me.<small>The one sentence to tell the team.</small></div>
+    <div class="ex"><div class="lab">Finished example</div>
+      <h5>Marlow Home · the morning page · v0.1</h5>
+      <h6>What we look at, and which number we trust</h6><ul><li>Meta ad-level spend and return. Meta's own number is the one we scale on.</li><li>Shopify new versus returning. Shopify is the source.</li><li>Weeks of stock on the hero products, from the inventory tool.</li></ul>
+      <h6>Where we act</h6><ol><li>Scale by 20% when return is above 2.4 for three days and the ad is under its cap.</li><li>Cut when return is below 1.6 for two days after $800 spent.</li><li>Reorder when a hero product drops below six weeks of stock.</li></ol>
+      <h6>Exceptions</h6><ul><li>New launches get five days before rule 2 applies.</li><li>Anything touching the Q4 bundle comes to the founder, always.</li></ul>
+      <h6>Who does what</h6><p>Head of Growth runs the page at 9:00 and posts the recommendation. The founder reads exceptions only, by 9:30.</p>
+    </div>
+  </div></details>
+
+  <details class="guide"><summary>The Bundle · one person whose absence stops things</summary><div class="in">
+    <p><b>What you will write down.</b> Their real week, split in two piles: what needs their years, and what just sits next to it. Then the biggest thing in the second pile, written so that someone else can do it and get the same result.</p>
+    <p><b>The one-hour conversation.</b> You sit with them, with their calendar and inboxes open, not their memory. For every item: "why did this come to you?" The useful answer is rarely "because it's hard". <a href="../files/05-the-prompts.md">Prompt 2</a> sorts the piles; prompt 3 writes the big one down. You are not auditing them. You are giving them their week back.</p>
+    <p><b>The first run.</b> Someone who is not them does the pile-two item next week, from the page.</p>
+    <p><b>How you will know it worked.</b> Someone else did it, unsupervised, and the result was good. Not "the document exists."</p>
+    <div class="rule">If only one person can do it, it doesn't go live until it's written down.<small>The one sentence to tell the team.</small></div>
+    <div class="ex"><div class="lab">Finished example</div>
+      <h5>Pelham Apparel · Sam's week, split</h5>
+      <h6>Needs Sam's years · 9 hours</h6><ul><li>Choosing which ideas to brief.</li><li>Feedback on the first cut.</li><li>Picking creators.</li></ul>
+      <h6>Sits next to it · 11 hours</h6><ul><li>Chasing creators for footage, 4 h.</li><li>Reformatting the brief for each creator, 3 h.</li><li>Logging files into the tracker, 2 h.</li><li>Re-checking claims before sending up, 2 h.</li></ul>
+      <h6>Written down first: chasing footage</h6><p><b>When it starts:</b> a creator is two days past their date on the tracker. <b>Steps:</b> the first message from the template, a second at day four with the cut-off date, reassign at day six. <b>Judgment calls:</b> a creator who has been late twice before gets the day-four message on day two. <b>Done:</b> footage in the folder, tracker updated. <b>Three mistakes to avoid:</b> messaging before checking the folder; softening the cut-off; forgetting to tell the editor about the reassign. <b>Who does it now:</b> the coordinator.</p>
+    </div>
+  </div></details>
+
+  <details class="guide"><summary>The Spark · someone works something out and it does not spread</summary><div class="in">
+    <p><b>What you will write down.</b> A rule for lessons. Where one gets written, who writes it, by when, and in what shape.</p>
+    <p><b>The conversation.</b> Thirty minutes with the person who last worked something out, with that one thing on the table. Trace where it went and where it stopped. If you are tempted to buy or build something instead, run <a href="../files/05-the-prompts.md">prompt 6</a> first.</p>
+    <p><b>The first run.</b> The next result gets written up the same day by whoever ran it. On Friday, check that it happened.</p>
+    <p><b>How you will know it worked.</b> You can say what got better last month and why, and everyone who does that work already knows.</p>
+    <div class="rule">Nothing is learned unless it's written where the work happens, the same day.<small>The one sentence to tell the team.</small></div>
+    <div class="ex"><div class="lab">Finished example</div>
+      <h5>Ondine Skincare · the lessons rule</h5>
+      <ul><li><b>Where it goes:</b> the creative rules page, section "what worked".</li><li><b>Who writes it:</b> whoever ran the test.</li><li><b>By when:</b> the same day the result is read.</li><li><b>Shape:</b> one line. What we tried, what happened, why we think so.</li><li><b>Read out:</b> the Creative Director reads the section at the Monday meeting. Anything that held for three weeks becomes a rule.</li></ul>
+      <h6>Last month's lines</h6><ul><li>Problem-first opening on the retinol ad: click-through up 31% over product-first. Second test held. Now rule 8.</li><li>Creator saying "I've tried everything": flagged twice, approved by the founder twice. Added as a close call.</li></ul>
+    </div>
+  </div></details>
+
+  <details class="guide"><summary>The Fork · everyone builds their own thing, every decision comes back to you</summary><div class="in">
+    <p><b>What you will write down.</b> One page. The one problem you are solving first, with a number on it. Three to five rules written so that they say no to something. And one speed limit.</p>
+    <p><b>The conversation.</b> You, alone, for forty-five minutes. Then the team. <a href="../files/05-the-prompts.md">Prompt 4</a> drafts the page with you; prompt 5 tests every rule.</p>
+    <p><b>The first run.</b> The next "should I build this?" gets answered from the page, not by you.</p>
+    <p><b>How you will know it worked.</b> Someone actually said no to something because of one of the rules.</p>
+    <div class="rule">Nobody ships what they can't explain.<small>The speed limit, and the one sentence to tell the team.</small></div>
+    <div class="ex"><div class="lab">Finished example</div>
+      <h5>Bramble Pet · the one page</h5>
+      <h6>The one problem</h6><p>Cut the time from idea to live ad from eleven days to five without hiring. The person who owns this: the Creative Director, because it is her problem.</p>
+      <h6>Rules that say no</h6><ul><li>We don't automate anything until we've tried to stop doing it. <i>Stopped:</i> the weekly performance deck. We killed it instead.</li><li>Nothing ships unless it takes away more work than it makes. <i>Stopped:</i> a dashboard that saved twenty minutes and cost an hour a week.</li><li>If only one person can fix it, it doesn't go live. <i>Held back:</i> the reply assistant, for two weeks, until a second person understood it.</li></ul>
+      <h6>Speed limit</h6><p>Nobody ships what they can't explain. How fast we can check things, not how fast we can build them, sets the pace.</p>
+    </div>
+  </div></details>
+
+  <details><summary>More: where these usually sit in the life of an ad</summary><div class="in">
+    <p>For most brands your size, the candidates sit somewhere along the life of an ad. Deciding what to test and writing the brief. Getting it made. Approving it and launching it. Reading the results. And then connecting the results back to the idea and the person who made it, so the next brief is better. That last part is the one most brands skip, which is why the same lessons get learned twice.</p>
+    <figure>
+    <svg viewBox="0 0 680 195" role="img" aria-label="Five stops: decide and brief, get it made, approve and launch, read results, connect results back. A return arrow from the last stop to the first. Mara's three candidates are marked on the first, second, and third stops, with approvals highlighted.">
+      <defs><marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A9822F"/></marker></defs>
+      <line x1="70" y1="110" x2="610" y2="110" stroke="currentColor" stroke-width="1.5"/>
+      <g fill="#E9E3D2" stroke="currentColor" stroke-width="1.5">
+        <circle cx="70" cy="110" r="16"/><circle cx="205" cy="110" r="16"/><circle cx="340" cy="110" r="22" stroke="#A9822F" stroke-width="3"/><circle cx="475" cy="110" r="16"/><circle cx="610" cy="110" r="16"/>
+      </g>
+      <g fill="currentColor" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">
+        <text x="70" y="150">Decide and brief</text><text x="205" y="150">Get it made</text><text x="340" y="156">Approve and launch</text><text x="475" y="150">Read results</text><text x="610" y="150">Connect back</text>
+      </g>
+      <g fill="#A9822F" font-family="Playfair Display,serif" font-style="italic" font-size="11.5" text-anchor="middle">
+        <text x="70" y="86">re-explaining the brand</text><text x="205" y="86">Jules's week</text><text x="340" y="78">approving creatives</text>
+      </g>
+      <g fill="#A9822F"><circle cx="70" cy="93" r="3"/><circle cx="205" cy="93" r="3"/></g>
+      <path d="M610,92 L610,40 L70,40 L70,80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ah4)"/>
+      <text x="340" y="33" fill="currentColor" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" opacity="0.75">what you learned goes back into the next brief. Skip this and you learn it twice.</text>
+    </svg>
+    <figcaption>Mara's three candidates on the map. Approving creatives sits at launch, and it is the one she picks. Re-explaining the brand sits at the start, and much of Jules's week sits at "get it made". The Gate usually lives at launch, the Echo and the Fork at the start, the Bundle at "get it made", the Sensor at results, the Spark at connecting back.</figcaption>
+  </figure>
+    <p class="soft">Other parts of the business have the same kind of map. Order, ship, support, keep the customer. Buy stock, hold it, turn it into cash. Same idea, different stops.</p>
+  </div></details>
+
+  <div class="need"><span class="k">Before you go on, you need</span><p>Your pattern, and its guide open. From the guide: the thing you will write down, and the person who will sit with you for the hour.</p></div>
+
+  <div class="name"><span class="k">What we call this</span><p>The six patterns are <b>the Six Shapes</b>: Gate, Echo, Sensor, Bundle, Spark, Fork. The life of an ad, from brief to results and back, is <b>the Map</b>.</p></div>
+</section>
+
+<!-- ============ STEP 5 ============ -->
+<section id="s5">
+  <div class="sectlabel">Step 5</div>
+  <h2>What do you actually do on Monday?</h2>
+  <div class="story"><span class="k">Mara</span><p>Mara's plan fits on five lines. Dev is the person. Tuesday is the hour. The approval rules are the thing. Every creative goes through the first pass before it reaches anyone, and nothing launches without it. Friday, the last ten go through and every miss gets written in.</p></div>
+
+  <p>Whatever your pattern, the plan is the same five lines. Put a person and a day on each. Every day lands before Q4 peak.</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="v">Name</div><p>The person who will make this decision after you. <b>For Mara, that is Dev.</b></p></div>
+    <div class="step"><div class="n">2</div><div class="v">Book</div><p>The hour where that person interviews you, with the real items on the table. <b>Mara and Dev, Tuesday, the last ten creatives.</b></p></div>
+    <div class="step"><div class="n">3</div><div class="v">Write</div><p>The one thing your guide says to write down. <b>For Mara, the approval rules.</b></p></div>
+    <div class="step"><div class="n">4</div><div class="v">Set</div><p>When it runs from now on, and the one sentence you tell the team. <b>Every creative, before it reaches anyone.</b></p></div>
+    <div class="step"><div class="n">5</div><div class="v">Run</div><p>Put the last ten real items through it and count the matches. Every miss becomes a rule. <b>Mara does this on Friday.</b></p></div>
+  </div>
+  <p><b>Done means one thing,</b> whatever the pattern: someone who is not you runs it on real items, without you watching, and the result is good. It never means "the document exists."</p>
+  <p class="soft">If step 3 said your item needs a home first, do that in the week before line 2: get everything into one list, then book the hour.</p>
+
+  <h3>The one sentence</h3>
+  <p>Every plan ends with one sentence you say to the team. It has to be a sentence that makes someone say no to something they wanted to do. It starts "We don't" or "Nothing ships unless". If it starts "we believe" or "we embrace", it is a poster, and nobody has ever refused anything because of a poster.</p>
+  <ul>
+    <li><b>We don't automate anything until we've tried to stop doing it.</b> Automate a bad process and you have made it permanent.</li>
+    <li><b>Nothing ships unless it takes away more work than it makes.</b> Including the work of keeping it running.</li>
+    <li><b>If only one person can fix it, it doesn't go live.</b> The whole point is fewer things that depend on one person. Don't add one.</li>
+    <li><b>Nobody ships what they can't explain.</b> How fast you can check things sets the pace, not how fast you can build them.</li>
+  </ul>
+  <p class="soft">Not sure if yours is a real rule? <a href="../files/05-the-prompts.md">Prompt 5</a> asks it to name three things it would stop. If it can't, rewrite it.</p>
+
+  <div class="why"><h3>Why five lines</h3>
+  <p>A plan with names and days gets done. A plan without them does not. And one sentence the team can say back is what stops the thing you just wrote down from quietly going back into your head.</p></div>
+
+  <div class="need"><span class="k">Before you go on, you need</span><p>You should have five lines, each with a person and a day on it. You should have one sentence you will say to the team. And you should have a date by which someone else, not you, is running it.</p></div>
+
+  <div class="name"><span class="k">What we call this</span><p>The five lines are <b>Your Five Steps</b>: name, book, write, set, run. The sentence is <b>the one rule</b>.</p></div>
+</section>
+
+<!-- ============ STEP 6 ============ -->
+<section id="s6">
+  <div class="sectlabel">Step 6</div>
+  <h2>What is true by Q4 peak?</h2>
+  <div class="story"><span class="k">Mara</span><p>By the 3rd of October, Dev runs the first pass on every creative. By peak, Mara looks at the flagged ones once a day and nothing else. Forty creatives a week no longer wait on her, and testing volume doubles, which was the whole point.</p></div>
+
+  <p>You have six to eight weeks before peak. That is enough to get one decision off your desk for good, if you start Monday. It is not enough for three. So pick one and finish it before peak. The other two wait for January, and by then you will know exactly how to do them, because you will have done it once.</p>
+
+  <div class="oneline">
+    <div class="q">By ________, ________ makes this decision instead of me.<br>By peak, I only see the exceptions.</div>
+    <div class="a">Fill in the date and the name. That is the whole plan.</div>
+  </div>
+
+  <p style="margin-top:22px">Done means what it meant in step 5. Someone else runs it on real items, without you watching, and it is good. When that is true, something that used to work only because you were there now works without you. At your size, that is the one thing AI actually changes.</p>
+
+  <details><summary>More: before you buy or build anything for it</summary><div class="in">
+    <p>Six questions, from <a href="../files/05-the-prompts.md">prompt 6</a> in the toolkit. Is there a named problem? Did you try to stop doing it first? Does it take away more work than it makes, including the work of keeping it running? Is it just a faster version of the old way? Who fixes it if the person who built it is away? Who is waiting for what it produces? Then: build it, change it, or don't.</p>
+  </div></details>
+
+  <div class="name"><span class="k">What we call this</span><p>The line with the date and the name is <b>your commitment</b>. The six questions are <b>the pre-build check</b>.</p></div>
+</section>
+
+<!-- ============ WORDS ============ -->
+<section id="words">
+  <div class="sectlabel">Reference</div>
+  <h2>The words, in the order you met them</h2>
+  <dl>
+    <dt>Your two weeks</dt><dd>The list of everything that repeats, from your calendar and inboxes, with hours and drain on each.</dd>
+    <dt>The lever</dt><dd>Where your next profit comes from before the end of the year, with a number.</dd>
+    <dt>AI-enabled</dt><dd>What one person learns becomes something the whole company can do, without anyone making that happen.</dd>
+    <dt>Rented / owned</dt><dd>Ability that lives in a person, or ability the company keeps with no particular person around.</dd>
+    <dt>The Name Test</dt><dd>If you have to name a person for it to work, the company does not have it.</dd>
+    <dt>The Ladder</dt><dd>Chat, Personal, Shared, Delegated, Self-improving. The jump that matters is Personal to Shared.</dd>
+    <dt>The Floor</dt><dd>Where the things a loop works on live today. Decides how high that loop can go. Judged per item, never per company.</dd>
+    <dt>A loop</dt><dd>The same decision, made over and over, on a stream of things, with someone waiting.</dd>
+    <dt>The Two Gates</dt><dd>Is it stuck with one person? Can it move now? Then rank by how much waits, times how much there is.</dd>
+    <dt>The one loop</dt><dd>The one you picked. The other two wait.</dd>
+    <dt>The Six Shapes</dt><dd>Gate, Echo, Sensor, Bundle, Spark, Fork. The six places work gets stuck with one person.</dd>
+    <dt>The Map</dt><dd>The life of an ad: decide and brief, get it made, approve and launch, read results, connect back.</dd>
+    <dt>Your Five Steps</dt><dd>Name, book, write, set, run. A person and a day on each.</dd>
+    <dt>The one rule</dt><dd>One sentence the team can say no with. "We don't" or "Nothing ships unless".</dd>
+    <dt>Your commitment</dt><dd>By a date, a named person makes this decision instead of you. By peak, you only see the exceptions.</dd>
+    <dt>The pre-build check</dt><dd>Six questions before anyone builds or buys. Prompt 6 in the toolkit.</dd>
+  </dl>
+</section>
+
+<footer>Evolve Apex &middot; The 1-1 &middot; 2026</footer>
+
+</div>
+</body>
+</html>
