@@ -14,8 +14,8 @@
 4. **Rules That Actually Refuse Something** — guard rails people use.
 5. **The Prompts** — copy-paste prompts that run every exercise above.
 
-**Bonus:** *How We Build* — the full build lifecycle we run
-<https://github.com/zjamesblake/team-build-kit/blob/main/HOW_WE_BUILD.md>
+**Bonus:** *Why We Build This Way* — the reasons behind the build lifecycle we run
+<https://github.com/zjamesblake/team-build-kit/blob/main/workspace/why_we_build.md>
 
 ---
 
